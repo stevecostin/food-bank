@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '@/views/Dashboard.vue';
-import Clients from '@/views/Clients.vue';
-import Staff from '@/views/Staff.vue';
+import Clients from '@/views/clients/Clients.vue';
+import Staff from '@/views/staff/Staff.vue';
 
 const siteName = 'Food Bank';
 
