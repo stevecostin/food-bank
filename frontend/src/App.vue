@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { ref } from "vue";
 import Menubar from 'primevue/menubar';
 import { useRouter } from 'vue-router';
@@ -43,7 +43,7 @@ const items = ref([
 <div>
 	<Menubar :model="items" />
 </div>
-<div>
+<div id="main">
 	<RouterView />
 </div>
 </template>

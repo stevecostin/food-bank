@@ -1,2 +1,6 @@
 @import './base.css';
 
+#main {
+    padding: 1rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
