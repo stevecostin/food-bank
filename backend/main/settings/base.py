@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'frontend_api',
     'accounts',
+    'food_bank_site',
 ]
 
 MIDDLEWARE = [
