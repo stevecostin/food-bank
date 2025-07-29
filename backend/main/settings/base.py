@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+# Edit DEBUG in .env file
 DEBUG = os.environ.get('DEBUG') == 'True'
 
 if DEBUG:
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
 
     'frontend_api',
     'accounts',
-    'food_bank_site',
+    'global_site',
 ]
 
 MIDDLEWARE = [
