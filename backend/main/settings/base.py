@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'frontend_api',
     'accounts',
     'global_site',
+    'core',
 ]
 
 MIDDLEWARE = [

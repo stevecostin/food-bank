@@ -22,4 +22,10 @@ urlpatterns = [
 
     # Global configuration
     path('site/', include('global_site.urls')),
+
+    # Frontend API's
+    path('frontend-api/', include('frontend_api.urls')),
+
+    # Core
+    path('core/', include('core.urls')),
 ]
