@@ -18,14 +18,12 @@ from django.urls import path
 from django.urls import include
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-
     # Global configuration
-    path('site/', include('global_site.urls')),
+    path('', include('global_site.urls')),
 
     # Frontend API's
-    path('frontend-api/', include('frontend_api.urls')),
+    path('', include('frontend_api.urls')),
 
     # Core
-    path('core/', include('core.urls')),
+    path('', include('core.urls')),
 ]
