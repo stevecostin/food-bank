@@ -27,11 +27,11 @@ class ClientHouseholdMembers(models.Model):
         db_table = "client_household_members"
 
     client = models.ForeignKey("Client", on_delete=models.CASCADE)
-    num_adults = models.IntegerField(default=0)
-    num_pensioners = models.IntegerField(default=0)
-    num_children_0_to_5 = models.IntegerField(default=0)
-    num_children_6_to_11 = models.IntegerField(default=0)
-    num_children_12_to_17 = models.IntegerField(default=0)
+    num_adults = models.IntegerField(default=0, null=True)
+    num_pensioners = models.IntegerField(default=0, null=True)
+    num_children_0_to_5 = models.IntegerField(default=0, null=True)
+    num_children_6_to_11 = models.IntegerField(default=0, null=True)
+    num_children_12_to_17 = models.IntegerField(default=0, null=True)
 
 
 class ClientHouseholdBenefits(models.Model):
