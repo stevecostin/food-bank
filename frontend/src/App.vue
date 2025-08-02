@@ -41,7 +41,7 @@ const items = ref([
         icon: 'pi pi-lock',
         items: [
             {
-                label: 'Staff',
+                label: 'Staff Management',
             },
 			{
 				separator: true,
