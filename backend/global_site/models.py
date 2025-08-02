@@ -21,3 +21,4 @@ class GlobalConfiguration(SingletonModel):
         db_table = 'global_configuration'
 
     name = models.CharField(max_length=50, default='Food Bank')
+    locale = models.CharField(max_length=5, default='enUK')
