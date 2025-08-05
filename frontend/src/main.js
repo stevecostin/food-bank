@@ -6,7 +6,7 @@ import router from './router';
 import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import ToastService from 'primevue/toastservice';
-import * as locales from './locales';
+import {enUK} from './locales';
 
 const app = createApp(App);
 
@@ -15,7 +15,7 @@ app.use(PrimeVue, {
     theme: {
         preset: Aura,
     },
-    locale: locales.enUK,
+    locale: enUK,
 });
 app.use(ToastService);
 
