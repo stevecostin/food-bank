@@ -9,13 +9,15 @@ class Client(models.Model):
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    door_number = models.CharField(max_length=20)
-    address_line_1 = models.CharField(max_length=50)
+    door_number = models.CharField(max_length=20, blank=True, null=True)
+    address_line_1 = models.CharField(max_length=50, blank=True, null=True)
     address_line_2 = models.CharField(max_length=50, blank=True, null=True)
-    city = models.CharField(max_length=30)
-    county = models.CharField(max_length=30)
-    post_code = models.CharField(max_length=10)
+    city = models.CharField(max_length=30, blank=True, null=True)
+    county = models.CharField(max_length=30, blank=True, null=True)
+    post_code = models.CharField(max_length=10, blank=True, null=True)
+    country = models.CharField(max_length=10, blank=True, null=True)
     telephone_number = models.CharField(max_length=15, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     date_of_birth = models.DateField()
 
     def __str__(self):

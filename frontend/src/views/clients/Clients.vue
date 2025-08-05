@@ -1,74 +1,105 @@
 <script setup>
-import { reactive } from 'vue';
-import { useToast } from 'primevue/usetoast';
-import Toast from 'primevue/toast';
-import {InputText} from "primevue";
-import {Message} from "primevue";
-import {Button} from "primevue";
-import {Form} from "@primevue/forms";
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+import { Form } from "@primevue/forms"
+import {InputText, Message, Button, DatePicker} from "primevue";
 
 const toast = useToast();
 
-const initialValues = reactive({
-    username: ''
+const initialValues = ref({
+    firstName: '',
+	lastName: '',
+    email: '',
+	dob: '',
+	doorNumber: '',
+	addressLine1: '',
+	addressLine2: '',
+	city: '',
+	county: '',
+	postCode: '',
+	country: '',
+	telephoneNumber: '',
 });
 
-const resolver = ({ values }) => {
-    const errors = {};
+const resolver = ref(zodResolver(
+    z.object({
+        firstName: z.string().min(1, { message: 'First name is required' }),
+		lastName: z.string().min(1, { message: 'Last name is required' }),
+		dob: z.preprocess((val) => {
+            if (val === '' || val === null) {
+                return null;
+            }
 
-    if (!values.first_name) {
-        errors.first_name = [{ message: 'First name is required.' }];
-    }
-
-	if (!values.last_name) {
-        errors.last_name = [{ message: 'Last name is required.' }];
-    }
-
-    return {
-        values, // Used to pass current form values to submit event.
-        errors
-    };
-};
+            return new Date(val);
+        }, z.union([z.date(), z.null().refine((val) => val !== null, { message: 'Date is required.' })]))
+    })
+));
 
 const onFormSubmit = ({ valid }) => {
     if (valid) {
         toast.add({
-            severity: 'success',
-            summary: 'Client successfully added',
-            life: 4000
-        });
+			severity: 'success',
+			summary: 'Form is submitted.',
+			life: 4000,
+		});
     }
 };
 </script>
 
 <template>
 <div class="card flex justify-center">
-	<Toast />
-
-	<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-		<div class="flex flex-row gap-1">
-			<div>
-				<label for="first_name">First name:</label>
-			</div>
-			<div class="flex flex-col gap-1">
-				<InputText name="first_name" type="text" fluid />
-				<Message v-if="$form.first_name?.invalid" severity="error" size="small" variant="simple">{{ $form.first_name.error?.message }}</Message>
-			</div>
+	<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" :validateOnMount="false" @submit="onFormSubmit" revalidateOn="submit" class="flex flex-col gap-4 w-full sm:w-56">
+		<div class="flex flex-col gap-1">
+			<InputText name="firstName" type="text" placeholder="First name" fluid />
+			<Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error?.message }}</Message>
 		</div>
-		<div class="flex flex-row gap-1">
-			<div>
-				<label for="last_name">Last name:</label>
-			</div>
-			<div class="flex flex-col gap-1">
-				<InputText name="last_name" type="text" fluid />
-				<Message v-if="$form.last_name?.invalid" severity="error" size="small" variant="simple">{{ $form.last_name.error?.message }}</Message>
-			</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="lastName" type="text" placeholder="Last name" fluid />
+			<Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error?.message }}</Message>
 		</div>
-		<Button type="submit" severity="secondary" label="Add Client" />
+		<div class="flex flex-col gap-1">
+			<InputText name="email" type="text" placeholder="Email address" fluid />
+			<Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{ $form.email.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="doorNumber" type="text" placeholder="Property number/name" fluid />
+			<Message v-if="$form.doorNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.doorNumber.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="addressLine1" type="text" placeholder="Address line 1" fluid />
+			<Message v-if="$form.addressLine1?.invalid" severity="error" size="small" variant="simple">{{ $form.addressLine1.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="addressLine2" type="text" placeholder="Address line 2" fluid />
+			<Message v-if="$form.addressLine2?.invalid" severity="error" size="small" variant="simple">{{ $form.addressLine2.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="city" type="text" placeholder="City" fluid />
+			<Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="county" type="text" placeholder="County" fluid />
+			<Message v-if="$form.county?.invalid" severity="error" size="small" variant="simple">{{ $form.county.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="postCode" type="text" placeholder="Postcode" fluid />
+			<Message v-if="$form.postCode?.invalid" severity="error" size="small" variant="simple">{{ $form.postCode.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="country" type="text" placeholder="Country" fluid />
+			<Message v-if="$form.country?.invalid" severity="error" size="small" variant="simple">{{ $form.country.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<InputText name="telephoneNumber" type="text" placeholder="Telephone number" fluid />
+			<Message v-if="$form.telephoneNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.telephoneNumber.error?.message }}</Message>
+		</div>
+		<div class="flex flex-col gap-1">
+			<DatePicker name="dob" showIcon iconDisplay="input" placeholder="Date of birth" fluid />
+			<Message v-if="$form.dob?.invalid" severity="error" size="small" variant="simple">{{ $form.dob.error?.message }}</Message>
+		</div>
+		<Button type="submit" severity="secondary" label="Submit" />
 	</Form>
 </div>
 </template>
-
-<style scoped>
-
-</style>
