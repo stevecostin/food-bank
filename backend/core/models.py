@@ -24,11 +24,11 @@ class Client(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class ClientHouseholdMembers(models.Model):
+class ClientHouseholdMember(models.Model):
     class Meta:
-        db_table = "client_household_members"
+        db_table = "client_household_member"
 
-    client = models.ForeignKey("Client", on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     num_adults = models.IntegerField(default=0, null=True)
     num_pensioners = models.IntegerField(default=0, null=True)
     num_children_0_to_5 = models.IntegerField(default=0, null=True)
@@ -36,20 +36,19 @@ class ClientHouseholdMembers(models.Model):
     num_children_12_to_17 = models.IntegerField(default=0, null=True)
 
 
-class ClientHouseholdBenefits(models.Model):
+class AvailableBenefit(models.Model):
     class Meta:
-        db_table = "client_household_benefits"
-
-    pk = CompositePrimaryKey("client_id", "benefit_type_id")
-    client = models.ForeignKey("Client", on_delete=models.CASCADE)
-    benefit_type = models.ForeignKey("AvailableBenefits", on_delete=models.CASCADE)
-
-
-class AvailableBenefits(models.Model):
-    class Meta:
-        db_table = "available_benefits"
+        db_table = "available_benefit"
 
     name = models.CharField(max_length=20)
 
     def __str__(self):
         return f"{self.name}"
+
+
+class ClientHouseholdBenefit(models.Model):
+    class Meta:
+        db_table = "client_household_benefit"
+
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    benefit_type = models.ForeignKey(AvailableBenefit, on_delete=models.CASCADE)

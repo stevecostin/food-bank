@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Client, ClientHouseholdMembers, ClientHouseholdBenefits, AvailableBenefits
+from .models import Client, ClientHouseholdMember, ClientHouseholdBenefit, AvailableBenefit
 
 # Register your models here.
 admin.site.register(Client)
-admin.site.register(ClientHouseholdMembers)
-admin.site.register(ClientHouseholdBenefits)
-admin.site.register(AvailableBenefits)
+admin.site.register(ClientHouseholdMember)
+admin.site.register(ClientHouseholdBenefit)
+admin.site.register(AvailableBenefit)
