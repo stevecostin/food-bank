@@ -4,7 +4,7 @@ import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { useToast } from "primevue/usetoast";
 import { z } from 'zod';
 import { Form } from "@primevue/forms"
-import {InputText, Message, Button, DatePicker} from "primevue";
+import { InputText, Message, Button, DatePicker } from "primevue";
 
 const toast = useToast();
 
@@ -50,29 +50,35 @@ const onFormSubmit = ({ valid }) => {
 
 <template>
 <div class="card flex justify-center">
-	<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" :validateOnMount="false" @submit="onFormSubmit" revalidateOn="submit" class="flex flex-col gap-4 w-full sm:w-56">
-		<div class="flex flex-col gap-1">
-			<InputText name="firstName" type="text" placeholder="First name" fluid />
-			<Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error?.message }}</Message>
+	<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" :validateOnMount="false" @submit="onFormSubmit" revalidateOn="submit" class="flex flex-col gap-2">
+		<div class="flex flex-row gap-2">
+			<div class="flex flex-col gap-1">
+				<InputText name="firstName" type="text" placeholder="First name"  />
+				<Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error?.message }}</Message>
+			</div>
+
+			<div class="flex flex-col gap-1">
+				<InputText name="lastName" type="text" placeholder="Last name"  />
+				<Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error?.message }}</Message>
+			</div>
 		</div>
 		<div class="flex flex-col gap-1">
-			<InputText name="lastName" type="text" placeholder="Last name" fluid />
-			<Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error?.message }}</Message>
-		</div>
-		<div class="flex flex-col gap-1">
-			<InputText name="email" type="text" placeholder="Email address" fluid />
+			<InputText name="email" type="text" placeholder="Email address"  />
 			<Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{ $form.email.error?.message }}</Message>
 		</div>
-		<div class="flex flex-col gap-1">
-			<InputText name="doorNumber" type="text" placeholder="Property number/name" fluid />
-			<Message v-if="$form.doorNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.doorNumber.error?.message }}</Message>
+		<div class="flex flex-row gap-2">
+			<div class="flex flex-col gap-1">
+				<InputText name="doorNumber" type="text" placeholder="Property" />
+				<Message v-if="$form.doorNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.doorNumber.error?.message }}</Message>
+			</div>
+
+			<div class="flex flex-col gap-1">
+				<InputText name="addressLine1" type="text" placeholder="Address line 1"  />
+				<Message v-if="$form.addressLine1?.invalid" severity="error" size="small" variant="simple">{{ $form.addressLine1.error?.message }}</Message>
+			</div>
 		</div>
 		<div class="flex flex-col gap-1">
-			<InputText name="addressLine1" type="text" placeholder="Address line 1" fluid />
-			<Message v-if="$form.addressLine1?.invalid" severity="error" size="small" variant="simple">{{ $form.addressLine1.error?.message }}</Message>
-		</div>
-		<div class="flex flex-col gap-1">
-			<InputText name="addressLine2" type="text" placeholder="Address line 2" fluid />
+			<InputText name="addressLine2" type="text" placeholder="Address line 2"  />
 			<Message v-if="$form.addressLine2?.invalid" severity="error" size="small" variant="simple">{{ $form.addressLine2.error?.message }}</Message>
 		</div>
 		<div class="flex flex-col gap-1">
