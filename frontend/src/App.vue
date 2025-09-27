@@ -5,52 +5,52 @@ import Menubar from 'primevue/menubar';
 import {Avatar} from "primevue";
 
 const items = ref([
-    {
-        label: 'People',
-        icon: 'pi pi-users',
-        items: [
-            {
-                label: 'Clients',
-				route: '/clients'
-            },
-        ]
-    },
-    {
-        label: 'Stock',
-        icon: 'pi pi-shopping-cart',
-        items: [
-            {
-                label: 'Shopping List',
-            },
-            {
-                label: 'Stock Management',
-            },
-        ]
-    },
-    {
-        label: 'Reporting',
-        icon: 'pi pi-chart-line',
-        items: [
-            {
-                label: 'Report 1',
-            },
-        ]
-    },
-    {
-        label: 'Admin',
-        icon: 'pi pi-lock',
-        items: [
-            {
-                label: 'Staff Management',
-            },
-			{
-				separator: true,
-			},
-            {
-                label: 'Site Settings',
-            },
-        ]
-    },
+    // {
+    //     label: 'People',
+    //     icon: 'pi pi-users',
+    //     items: [
+    //         {
+    //             label: 'Clients',
+	// 			route: '/clients'
+    //         },
+    //     ]
+    // },
+    // {
+    //     label: 'Stock',
+    //     icon: 'pi pi-shopping-cart',
+    //     items: [
+    //         {
+    //             label: 'Shopping List',
+    //         },
+    //         {
+    //             label: 'Stock Management',
+    //         },
+    //     ]
+    // },
+    // {
+    //     label: 'Reporting',
+    //     icon: 'pi pi-chart-line',
+    //     items: [
+    //         {
+    //             label: 'Report 1',
+    //         },
+    //     ]
+    // },
+    // {
+    //     label: 'Admin',
+    //     icon: 'pi pi-lock',
+    //     items: [
+    //         {
+    //             label: 'Staff Management',
+    //         },
+	// 		{
+	// 			separator: true,
+	// 		},
+    //         {
+    //             label: 'Site Settings',
+    //         },
+    //     ]
+    // },
 ]);
 </script>
 
