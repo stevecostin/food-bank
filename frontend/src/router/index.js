@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '@/views/Dashboard.vue';
+import Login from '@/views/Login.vue';
 import Clients from '@/views/clients/Clients.vue';
 import Staff from '@/views/staff/Staff.vue';
 
@@ -14,6 +15,14 @@ const router = createRouter({
       component: Dashboard,
       meta: {
         title: 'Dashboard',
+      },
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        title: 'Login',
       },
     },
     {
