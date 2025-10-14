@@ -48,10 +48,10 @@ router.beforeEach((to, from) => {
   let title = '';
 
   if (to.meta.title) {
-    title = ` - ${to.meta.title}`
+    title = `${to.meta.title} - `
   }
 
-  document.title = `${siteName}${title}`;
+  document.title = `${title}${siteName}`;
 })
 
 export default router;
