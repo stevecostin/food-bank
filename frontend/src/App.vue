@@ -1,8 +1,8 @@
 <script setup>
-import {RouterView} from 'vue-router'
-import {ref} from "vue";
+import { RouterView } from 'vue-router'
+import { ref } from "vue";
 import Menubar from 'primevue/menubar';
-import {Avatar} from "primevue";
+import { Avatar } from "primevue";
 
 const items = ref([
     // {
