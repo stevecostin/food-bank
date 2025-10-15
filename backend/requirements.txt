@@ -8,7 +8,6 @@ Django==5.2.4
 django-cors-headers==4.9.0
 djangorestframework==3.16.0
 djangorestframework_simplejwt==5.5.1
-djoser==2.3.3
 idna==3.10
 mypy==1.17.0
 mypy_extensions==1.1.0

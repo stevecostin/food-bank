@@ -5,9 +5,6 @@ urlpatterns = [
     # Admin portal
     path('admin/', admin.site.urls),
 
-    path('api/v1/', include('djoser.urls')),
-    path('api/v1/', include('djoser.urls.authtoken')),
-
     # Global configuration
     path('', include('global_site.urls')),
 
