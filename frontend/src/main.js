@@ -8,7 +8,6 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import ToastService from 'primevue/toastservice';
 import { enUK } from './locales';
-import axios from "axios";
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -22,7 +21,5 @@ app.use(PrimeVue, {
 });
 app.use(ToastService);
 app.use(pinia);
-
-axios.defaults.baseURL = 'http://localhost:8000'
 
 app.mount('#app');
