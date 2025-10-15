@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '@/stores/auth.js';
 
 const api = axios.create({
-  baseURL: '',
+  baseURL: 'http://localhost:8000',
 });
 
 // Attach token to every request safely
