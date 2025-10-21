@@ -1,4 +1,4 @@
-import api from "@/api.js";
+import api from "@/components/api.js";
 
 export function useAuth() {
     async function getCSFRToken() {
