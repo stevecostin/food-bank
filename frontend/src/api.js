@@ -1,19 +1,8 @@
 import axios from 'axios';
-import { useAuthStore } from '@/stores/auth.js';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000',
-});
-
-// Attach token to every request safely
-api.interceptors.request.use((config) => {
-    const store = useAuthStore();
-
-    if (store.token) {
-        config.headers['Authorization'] = `Token ${store.token}`;
-    }
-
-    return config;
+    baseURL: import.meta.env.VITE_API_BASE_URL,
+    withCredentials: true,
 });
 
 export default api;
