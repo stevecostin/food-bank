@@ -22,5 +22,6 @@ export default defineConfig({
           '/api': 'http://localhost:8000'
         },
         port: 8080,
+        strictPort: true,
     }
 })
