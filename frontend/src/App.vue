@@ -10,8 +10,8 @@ const items = ref([
     //     icon: 'pi pi-users',
     //     items: [
     //         {
-    //             label: 'Clients',
-	// 			route: '/clients'
+    //             label: 'Client',
+	// 			route: '/client'
     //         },
     //     ]
     // },
