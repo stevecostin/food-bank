@@ -5,7 +5,6 @@ import { useAuthStore } from "@/stores/auth.js";
 import { useRouter, useRoute } from 'vue-router'
 import { Form } from '@primevue/forms';
 import api from "@/components/api.js";
-import { useUtils } from "@/composables/utils.js";
 
 const router = useRouter();
 const route = useRoute();
@@ -22,16 +21,8 @@ const onFormSubmit = async ({ valid }) => {
 		password: password.value,
 	};
 
-	const headers = {
-		headers: {
-			'X-CSRFToken': useUtils().getCookie('csrftoken'),
-			'Content-Type': 'application/json',
-			'Accept': 'application/json',
-		}
-	}
-
 	try {
-		let response = await api.post('/accounts/login', formData, headers);
+		let response = await api.post('/accounts/login', formData);
 
 		const token = response.data;
 
