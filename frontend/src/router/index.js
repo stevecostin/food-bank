@@ -3,7 +3,7 @@ import Dashboard from '@/views/Dashboard.vue';
 import Login from '@/views/Login.vue';
 import Client from '@/views/client/Client.vue';
 import Staff from '@/views/staff/Staff.vue';
-import { useAuthStore } from "@/stores/auth.js";
+import { useAuth } from "@/composables/auth.js";
 
 const SITE_NAME = 'Food Bank';
 const LOGIN_ROUTE = '/login';
@@ -48,9 +48,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // If user is not authorised to access the page that they're being routed to, re-route them to the login page
-  const auth = useAuthStore();
-
-  if (!useAuthStore().isLoggedIn) {
+  if (!useAuth().isLoggedIn()) {
     if (to.path !== LOGIN_ROUTE) {
         next(LOGIN_ROUTE);
     } else {
