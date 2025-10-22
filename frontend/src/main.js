@@ -27,11 +27,7 @@ app.use(PrimeVue, {
 app.use(ToastService);
 
 try {
-  const token = await useAuth().getCSFRToken();
-
-  if (!token.success) {
-    console.error('Failed to get CSRF token');
-  }
+  useAuth().getCSFRToken();
 } catch (e) {
   console.error('Failed to get CSRF token', e);
 }
